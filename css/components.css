@@ -1,0 +1,790 @@
+/*
+Component
+styles
+*/
+
+/* Hero Section with hero.png */
+.hero-section {
+    width: 100%;
+    height: 70vh; 
+    min-height: 550px;
+    background-image: url('../images/hero.png');
+    background-size: cover;
+    background-position: center center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 30px;
+    position: relative;
+    /* Removed the direct filter: blur(1px) that was affecting all content */
+    overflow: hidden;
+}
+
+/* Create a pseudo-element with the same background image but blurred */
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('../images/hero.png');
+    background-size: cover;
+    background-position: center center;
+    filter: blur(2px); /* Increased blur from 1px to 2px for desktop */
+    opacity: 1;
+    z-index: 0;
+    pointer-events: none;
+}
+
+/* Dark overlay for better text readability */
+.hero-section::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.35); /* Increased darkness slightly from 0.3 */
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* Add less aggressive fade to bottom of hero image */
+.hero-section .fade-overlay {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 25%; /* Increased from 20% for more visible fade */
+    background: linear-gradient(to bottom, 
+                rgba(0, 0, 0, 0) 0%,
+                rgba(0, 0, 0, 0.45) 40%, /* Increased opacity from 0.4 */
+                rgba(0, 0, 0, 0.75) 80%, /* Increased opacity from 0.7 */
+                rgba(0, 0, 0, 0.9) 100%); /* Increased opacity from 0.85 */
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* Hero content styling - ensure it's above all overlays */
+.hero-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    max-width: 1000px;
+    width: 90%;
+    z-index: 2; /* Above all overlays */
+    padding: 30px;
+    position: relative;
+}
+
+/* Hero title styling */
+.hero-content h1 {
+    font-size: 4rem;
+    margin: 0 0 20px 0;
+    padding: 15px 30px;
+    color: #E74C3C; /* Changed to red */
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.9), 
+                 0 0 20px rgba(0, 0, 0, 0.5), 
+                 0 4px 5px rgba(0, 0, 0, 0.7); /* Enhanced multi-layer shadow for depth */
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    text-transform: uppercase;
+    text-align: center;
+    background-color: transparent; /* Removed background */
+    backdrop-filter: none; /* Removed blur */
+    border-radius: 10px;
+}
+
+/* Text content container */
+.text-content {
+    padding: 20px;
+    background-color: transparent; /* Removed background */
+    backdrop-filter: none; /* Removed blur */
+    border-radius: 10px;
+    width: 100%;
+}
+
+.explanatory-text {
+    font-size: 1.15rem;
+    line-height: 1.5;
+    color: var(--muted-color);
+    text-align: center;
+    max-width: 900px;
+    margin: 0 auto 25px;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+    font-weight: 400;
+    letter-spacing: -0.01em;
+}
+
+.constitution-excerpt {
+    font-style: italic;
+    background: rgba(255,255,255,0.05);
+    padding: 16px 24px;
+    border-left: 4px solid var(--primary-color);
+    color: var(--text-color);
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 25px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(5px);
+    border-radius: 4px;
+}
+
+/* Scroll Button */
+.scroll-button {
+    background: rgba(231, 76, 60, 0.7);
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 8px 16px;
+    font-size: 0.75rem;
+    cursor: pointer;
+    margin: 0 auto 15px;
+    transition: all 0.2s ease;
+    display: block;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    backdrop-filter: blur(4px);
+    letter-spacing: 0.02em;
+}
+
+.scroll-button:hover {
+    background: var(--primary-color);
+    transform: translateY(2px);
+    box-shadow: 0 4px 12px rgba(231, 76, 60, 0.3);
+}
+
+/* Mobile text content container - hidden by default */
+.mobile-text-content {
+    display: none;
+}
+
+/* Header and Text Components */
+header {
+    position: relative;
+    padding: 40px 0;
+    background-image: url('../images/background.jpg');
+    background-size: cover;
+    background-position: center 40%;
+    background-repeat: no-repeat;
+    z-index: 1;
+    margin-bottom: 30px;
+    border-bottom: none;
+    filter: contrast(1.1) brightness(1.05);
+}
+
+header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(
+        ellipse at center,
+        rgba(0, 0, 0, 0.1) 0%, 
+        rgba(0, 0, 0, 0.3) 30%, 
+        rgba(0, 0, 0, 0.6) 60%,
+        rgba(0, 0, 0, 0.8) 80%,
+        rgba(0, 0, 0, 1) 100%
+    ), linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0.7) 0%,
+        rgba(0, 0, 0, 0.5) 15%,
+        rgba(0, 0, 0, 0.3) 30%,
+        rgba(0, 0, 0, 0.2) 50%,
+        rgba(0, 0, 0, 0.15) 100%
+    );
+    z-index: -1;
+}
+
+/* Image Slider */
+.image-slider {
+    width: 100%;
+    max-width: 1200px;
+    position: relative;
+    overflow: hidden;
+    margin: 0 auto 15px;
+    height: 400px;
+    padding-bottom: 2px;
+    border-radius: 8px;
+}
+
+.slider-container {
+    display: flex;
+    position: relative;
+    transition: transform 0.3s ease;
+    height: 100%;
+}
+
+.slider-image {
+    min-width: calc(33.333% - 20px);
+    width: calc(33.333% - 20px);
+    height: calc(100% - 4px);
+    margin: 0 10px 4px 10px;
+    object-fit: contain;
+    border-radius: 16px; /* Reduced from 32px for less roundness */
+    max-height: 380px;
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.slider-image:hover {
+    filter: brightness(1.1);
+    transform: scale(1.02);
+}
+
+.slider-controls {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    pointer-events: none;
+    z-index: 2;
+}
+
+.slider-btn {
+    background: rgba(231, 76, 60, 0.4);
+    color: white;
+    border: none;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    font-size: 28px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    pointer-events: auto;
+    align-self: center;
+    margin: 0 60px;
+    opacity: 0.6;
+    backdrop-filter: blur(4px);
+}
+
+.slider-btn:hover {
+    background: var(--primary-color);
+    opacity: 1;
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(231, 76, 60, 0.4);
+}
+
+/* Video Grid */
+.video-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    width: 100%;
+    max-width: 1200px;
+    padding: 0 20px 100px;
+    margin: 0 auto;
+}
+
+.video-container {
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px;
+    transition: transform 0.3s ease;
+    padding-top: 56.25%;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+.video-container:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+}
+
+.video-container iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.video-thumbnail {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.5s ease;
+}
+
+.video-thumbnail::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    transition: background 0.3s ease;
+}
+
+.video-container:hover .video-thumbnail {
+    transform: scale(1.05);
+}
+
+.video-container:hover .video-thumbnail::before {
+    background: rgba(0,0,0,0.3);
+}
+
+.play-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60px;
+    height: 60px;
+    background-color: rgba(231, 76, 60, 0.8);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(4px);
+}
+
+.play-button:hover {
+    background-color: var(--primary-color);
+    transform: translate(-50%, -50%) scale(1.1);
+    box-shadow: 0 0 20px rgba(231, 76, 60, 0.5);
+}
+
+.play-button::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 12px 0 12px 20px;
+    border-color: transparent transparent transparent #ffffff;
+    margin-left: 4px;
+}
+
+/* Fullscreen Button */
+.fullscreen-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 10;
+    background: rgba(231, 76, 60, 0.7);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 6px 10px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: all 0.2s ease;
+    backdrop-filter: blur(3px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 34px;
+    height: 34px;
+}
+
+.fullscreen-btn:hover {
+    background: var(--primary-color);
+    transform: scale(1.05);
+    box-shadow: 0 0 10px rgba(231, 76, 60, 0.5);
+}
+
+/* Footer */
+.footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    min-height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 8px 16px;
+    background-color: var(--surface-color);
+    color: white;
+    z-index: 100;
+    backdrop-filter: blur(10px);
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.signature {
+    height: 35px;
+    width: auto;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.signature:hover {
+    transform: scale(1.1);
+    filter: brightness(1.2);
+}
+
+.boycott-link {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.2s ease;
+    margin-left: 180px;
+    padding: 6px 16px;
+    border-radius: 20px;
+    background: rgba(231, 76, 60, 0.1);
+    border: 1px solid rgba(231, 76, 60, 0.3);
+}
+
+.boycott-link:hover {
+    color: #fff;
+    background-color: var(--primary-color);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(231, 76, 60, 0.4);
+}
+
+.footer-text {
+    margin: 0;
+    font-size: 0.875rem;
+    white-space: nowrap;
+    opacity: 0.8;
+}
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.85);
+    z-index: 1000;
+    overflow-y: auto;
+}
+
+.modal-content {
+    position: relative;
+    background-color: #111111;
+    margin: 7% auto; /* Increased from 5% to position higher on screen */
+    padding: 30px; /* Reduced from 40px */
+    width: 75%; /* Reduced from 90% */
+    max-width: 1000px; /* Increased from 800px to be wider */
+    border: 1px solid #333;
+    border-radius: 4px;
+    color: white;
+    max-height: 80vh; /* Added to ensure it doesn't exceed screen height */
+    overflow-y: auto; /* Added scrolling for overflow content */
+}
+
+.close-modal {
+    position: absolute;
+    top: 10px; /* Reduced from 15px */
+    right: 15px; /* Reduced from 20px */
+    font-size: 24px; /* Reduced from 28px */
+    cursor: pointer;
+    color: #666;
+    transition: color 0.2s ease;
+}
+
+.close-modal:hover {
+    color: #E74C3C;
+}
+
+.hitabe-text {
+    font-size: 1rem; /* Reduced from 1.1rem */
+    line-height: 1.6; /* Reduced from 1.8 */
+    margin-top: 15px; /* Reduced from 20px */
+    column-count: 1; /* Changed from 2 to 1 to remove two-column layout */
+    max-width: 900px; /* Added to ensure comfortable reading width */
+    margin-left: auto; /* Center the text block */
+    margin-right: auto; /* Center the text block */
+}
+
+.hitabe-text p {
+    margin-bottom: 1.2em; /* Reduced from 1.5em */
+}
+
+.hitabe-text .signature-text {
+    text-align: right;
+    font-style: italic;
+    color: #E74C3C;
+    column-span: all; /* Make signature span across all columns */
+}
+
+.hitabe-text .opening-line {
+    font-size: 1.3rem; /* Reduced from 1.4rem */
+    font-weight: bold;
+    color: #E74C3C;
+    margin-bottom: 1.5em; /* Reduced from 2em */
+    column-span: all; /* Make opening line span across all columns */
+}
+
+/* Thumbnail Classes */
+.thumbnail-loaded {
+    background-size: cover;
+}
+
+.thumbnail-fallback {
+    background-color: #222222;
+}
+
+/* Floating Share Button */
+.share-button {
+    position: fixed;
+    right: 20px;
+    bottom: 70px;
+    background-color: var(--primary-color);  /* Changed from secondary-color back to primary-color (red) */
+    color: white;
+    border: none;
+    border-radius: 50px;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(231, 76, 60, 0.4);  /* Updated shadow color to match red */
+    z-index: 99;
+    transition: all 0.3s ease;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+}
+
+.share-button:hover {
+    background-color: #c0392b;  /* Changed to darker red (was purple) */
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(231, 76, 60, 0.6);  /* Updated shadow color to match red */
+}
+
+.share-icon {
+    font-size: 18px;
+}
+
+.share-text {
+    font-weight: bold;
+    font-size: 14px;
+    letter-spacing: 0.02em;
+}
+
+/* Loading Indicator */
+.loading-indicator {
+    position: relative;
+    text-align: center;
+    padding: 20px;
+    margin-top: 20px;
+    display: none;
+    color: #FFFFFF;
+}
+
+.loading-spinner {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    border: 4px solid rgba(255, 255, 255, 0.1);
+    border-left-color: #E74C3C;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-bottom: 10px;
+}
+
+.fade-in {
+    animation: fadeIn 0.3s ease-in;
+}
+
+/* Content Section */
+.content-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 20px;
+    margin: 0 auto 40px;
+    max-width: 1200px; /* Add max-width for readability on very wide screens */
+    width: 100%;
+}
+
+/* Mobile title - new simplified approach */
+.mobile-title {
+    display: none; /* Hidden by default */
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 15px 30px;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 2.4rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-family: 'Space Grotesk', sans-serif;
+    max-width: 90%;
+    width: auto;
+    z-index: 10;
+}
+
+@media (max-width: 768px) {
+    .mobile-text-content {
+        display: block;
+        margin: 0 auto 20px;
+        width: 100%;
+        max-width: 600px;
+    }
+}
+
+.mobile-title-container {
+    display: none;
+    position: absolute;
+    bottom: 30px;
+    left: 0;
+    right: 0;
+    z-index: 10;
+}
+
+.mobile-title {
+    font-size: 2.4rem;
+    text-align: center;
+    color: white;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.9);
+    padding: 15px;
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    text-transform: uppercase;
+    background-color: rgba(0, 0, 0, 0.35);
+    backdrop-filter: blur(3px);
+    border-radius: 15px;
+    width: 90%;
+    max-width: 500px;
+    margin: 0 auto;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Mobile text content - completely separate from hero */
+.mobile-text-content {
+    display: none; /* Hidden by default on desktop */
+    width: 100%;
+    max-width: 600px;
+    margin: 15px auto;
+    padding: 20px;
+    background: rgba(17, 17, 17, 0.8);
+    backdrop-filter: blur(5px);
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Additional mobile-specific styles */
+@media (max-width: 768px) {
+    /* Reduce hero section height for mobile */
+    .hero-section {
+        height: 30vh; 
+        min-height: 180px;
+    }
+    
+    /* Fix mobile text content size */
+    .mobile-text-content {
+        padding: 15px;
+        margin: 15px auto;
+    }
+    
+    /* Adjust explanatory text for mobile */
+    .explanatory-text {
+        font-size: 0.95rem;
+        line-height: 1.4;
+    }
+    
+    /* Fix constitution excerpt for mobile */
+    .constitution-excerpt {
+        font-size: 0.9rem;
+        padding: 12px 16px;
+    }
+    
+    /* Make scroll button more clickable */
+    .scroll-button {
+        padding: 8px 20px;
+        margin: 10px auto;
+        font-size: 0.8rem;
+        cursor: pointer;
+        display: inline-block;
+        position: relative;
+        z-index: 5;
+        border: none;
+        border-radius: 20px;
+        outline: none;
+        -webkit-tap-highlight-color: transparent;
+    }
+    
+    /* Hero content title for mobile */
+    .hero-content h1 {
+        font-size: 2.2rem;
+        padding: 10px 15px;
+    }
+}
+
+/* Very small screens */
+@media (max-width: 480px) {
+    .hero-section {
+        height: 25vh; 
+        min-height: 150px;
+    }
+    
+    .hero-content h1 {
+        font-size: 1.8rem;
+        padding: 8px 12px;
+    }
+    
+    .explanatory-text {
+        font-size: 0.85rem;
+    }
+    
+    .constitution-excerpt {
+        font-size: 0.8rem;
+        padding: 10px 12px;
+    }
+}
+
+/* iOS Fullscreen Solution */
+.ios-fullscreen {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    max-width: 100% !important;
+    max-height: 100% !important;
+    z-index: 9999 !important;
+    background-color: #000 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    border-radius: 0 !important;
+    transform: none !important;
+    box-shadow: none !important;
+    transition: none !important;
+}
+
+.ios-fullscreen-body {
+    overflow: hidden !important;
+    position: fixed !important;
+    width: 100% !important;
+    height: 100% !important;
+}
+
+/* Make fullscreen button more visible in iOS fullscreen mode */
+.ios-fullscreen .fullscreen-btn {
+    top: 15px;
+    right: 15px;
+    width: 40px;
+    height: 40px;
+    font-size: 22px;
+    padding: 8px;
+    background: rgba(231, 76, 60, 0.8);
+    z-index: 10000;
+}
