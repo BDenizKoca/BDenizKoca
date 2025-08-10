@@ -1,8 +1,11 @@
 # Welcome
 
-I'm Deniz, a curious mind exploring AI, Progressive Web Apps (PWAs), Flutter-Dart, and Python. I don’t consider myself a programmer, but I enjoy tinkering with code and building small projects for fun.
+I'm Deniz, a curious mind exploring AI, Progressive Web Apps (PWAs), Flutter-Dart, and Python. Not a programmer by trade, but I enjoy tinkering with code and building little projects for fun.
 
-## Interests & Learning Journey
+I build tiny, useful things – web apps, extensions, and scripts.  
+All open source, all working demos.
+
+## Interests
 
 - **Artificial Intelligence** – Experimenting with AI-driven tools and applications  
 - **Progressive Web Apps (PWAs)** – Exploring modern web technologies  
@@ -10,18 +13,17 @@ I'm Deniz, a curious mind exploring AI, Progressive Web Apps (PWAs), Flutter-Dar
 - **Python** – Writing small scripts and automating tasks  
 - **Game & Media Design** – Worldbuilding, storytelling, and interactive media  
 
-## Skills & Tools
-
-- **Programming Basics**: Python, Dart (Flutter), JavaScript (PWA concepts)  
-- **Software**: Adobe Premiere, Photoshop, After Effects, Microsoft Office  
-- **Languages**: Turkish (Native), English (Advanced), Latin (Beginner)  
-- **Creative & Analytical Thinking**: Writing, media production, problem-solving  
-
 ## Currently Exploring
-
 - Building AI-assisted tools with Python  
 - Developing simple mobile apps with Flutter  
-- Experimenting with automation and data analysis  
+- Experimenting with automation and data analysis
+
+## Projects
+
+| Project | What it is | Live / Code |
+| --- | --- | --- |
+| **Neislios** | Collaborative watchlist for people who actually watch things together. Notes, status, simple. | [Live](https://neislios.pages.dev) • [Code](https://github.com/BDenizKoca/Neislios) |
+| **WAutoSend** | Local-only WhatsApp Web message scheduler for Chrome. Remember now, send later. | – • [Code](https://github.com/BDenizKoca/WAutoSend) |
 
 ## Contact
 
@@ -30,4 +32,6 @@ Location: **İstanbul, Turkey**
 
 ---
 
-This space is where I document my learning journey. Expect experiments, small builds, and the occasional odd idea.
+> This space is my workshop – expect experiments, small builds, and the occasional odd idea.
+
+
