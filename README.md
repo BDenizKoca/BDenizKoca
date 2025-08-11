@@ -24,6 +24,7 @@ All open source, all working demos.
 | --- | --- | --- |
 | **Neislios** | Collaborative watchlist for people who actually watch things together. Notes, status, simple. | [Live](https://neislios.pages.dev) • [Code](https://github.com/BDenizKoca/Neislios) |
 | **WAutoSend** | Local-only WhatsApp Web message scheduler for Chrome. Remember now, send later. | – • [Code](https://github.com/BDenizKoca/WAutoSend) |
+| **MonitorNap** | Windows desktop app that dims monitors after inactivity – supports hardware & software dimming, per-monitor control, and Awake Mode. | – • [Code](https://github.com/BDenizKoca/MonitorNap) |
 
 ## Contact
 
@@ -33,5 +34,6 @@ Location: **İstanbul, Turkey**
 ---
 
 > This space is my workshop – expect experiments, small builds, and the occasional odd idea.
+
 
 
